@@ -5,17 +5,17 @@ import { MdDownloadForOffline } from 'react-icons/md';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 
-import { urlFor,client } from '../client'
-import { fetchUser } from '../utils/fetchUser';
+import { client, urlFor } from '../client';
 
-const Pin = ({pin}) => {
+const Pin = ({ pin }) => {
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
+
   const navigate = useNavigate();
-  
+
   const { postedBy, image, _id, destination } = pin;
 
-  const user = fetchUser();
+  const user = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   const deletePin = (id) => {
     client
@@ -137,6 +137,6 @@ const Pin = ({pin}) => {
       </Link>
     </div>
   );
-}
+};
 
-export default Pin
+export default Pin;

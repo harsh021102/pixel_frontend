@@ -17,9 +17,7 @@ const Feed = () => {
       setLoading(true);
       const query = searchQuery(categoryId);
       client.fetch(query).then((data) => {
-        // console.log(data);
         setPins(data);
-        // console.log("1");
         setLoading(false);
       });
     } else {
@@ -27,16 +25,16 @@ const Feed = () => {
       
       client.fetch(feedQuery).then((data) => {
         setPins(data);
-        // console.log("2");
-        // console.log(data);
-        // console.log(pins[0].image.asset.url);
         setLoading(false);
       });
     }
   }, [categoryId]);
+
+  if(loading) return <Spinner message="We are adding new feeds..."/>
+
+  if(!pins?.length) return <h2>No pins available</h2>
   return (
     <div>
-      {/* {console.log(pins)} */}
       {pins && (
         <MasonryLayout pins={pins} />
       )}
