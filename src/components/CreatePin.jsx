@@ -41,7 +41,7 @@ const CreatePin = ({ user }) => {
   };
 
   const savePin = () => {
-    if (title && about && destination && imageAsset?._id && category) {
+    if (title && about && imageAsset?._id && category) {
       const doc = {
         _type: 'pin',
         title,
@@ -71,7 +71,7 @@ const CreatePin = ({ user }) => {
         () => {
           setFields(false);
         },
-        2000,
+        1000,
       );
     }
   };
@@ -161,7 +161,7 @@ const CreatePin = ({ user }) => {
             type="url"
             vlaue={destination}
             onChange={(e) => setDestination(e.target.value)}
-            placeholder="Add a destination link"
+            placeholder="Add a destination link (optional)"
             className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
           />
 

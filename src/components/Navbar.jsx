@@ -4,7 +4,7 @@ import { IoMdAdd, IoMdSearch } from 'react-icons/io';
 
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
   const navigate = useNavigate();
-
+  // console.log("navbar: "+user);
   if (user) {
     return (
       <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">
